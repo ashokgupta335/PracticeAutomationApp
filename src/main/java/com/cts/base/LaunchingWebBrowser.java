@@ -7,26 +7,26 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class LaunchingWebBrowser {
 
+	private WebDriver driver;
+	public LaunchingWebBrowser(WebDriver driver) {
+		
+		this.driver = driver;
+	}
 	
-
-
-		public static WebDriver setUp() 
+		public WebDriver setUp() 
 		{
-			System.setProperty("webdriver.chrome.driver", "src/main/resources/Driver/chromedriver.exe");
-			WebDriver driver = new ChromeDriver();
+			System.setProperty("webdriver.chrome.driver", "src/test/resources/driver/chromedriver.exe");
+			driver = new ChromeDriver();
 			driver.manage().window().maximize();
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			
 			return driver;
 			
 		}
-		public static void tearDown(WebDriver driver)
+		public void tearDown()
 		{
 			driver.quit();
 		}
-	
-	
-	
 	
 	
 }

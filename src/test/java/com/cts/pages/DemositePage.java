@@ -6,43 +6,58 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 public class DemositePage {
-	private static By firstNameLoc = By.xpath("//input[@placeholder='First Name']");
-	private static By lastNameLoc = By.xpath("//input[@placeholder='Last Name']");
-	private static By addressLoc = By.tagName("textarea");
-	private static By emailLoc = By.xpath("//input[@type='email']");
-	private static By mobileNumLoc = By.xpath("//input[@type='tel']");
-	private static By genderLoc = By.xpath("//input[@value='Male']");
-	private static By hobbies_1Loc = By.xpath("//input[@value='Cricket']");
-	private static By hobbies_2Loc = By.xpath("//input[@value='Movies']");
-	private static By langLoc = By.id("msdd");
-	private static By lang_1Loc = By.xpath("//a[text()='Arabic']");
-	private static By lang_2Loc = By.xpath("//a[text()='English']");
-	private static By skillsLoc = By.id("Skills");
-	private static By countriesLoc = By.id("countries");
-	private static By countries_1Loc = By.id("country");
-	private static By yearLoc = By.id("yearbox");
-	private static By monthLoc = By.xpath("//select[@placeholder='Month']");
-	private static By dayLoc = By.id("daybox");
-	private static By passLoc = By.id("firstpassword");
-	private static By confrmPassLoc = By.id("secondpassword");
-	private static By refreshLoc = By.xpath("//button[text()='Refresh']");
-	private static By switchToLoc = By.linkText("SwitchTo");
-	private static By alertsLoc = By.linkText("Alerts");
-	private static By widgetsLoc = By.linkText("Widgets");
-	private static By autoCompleteLoc = By.linkText("AutoComplete");
-	private static By moreEleLoc = By.linkText("More");
-	private static By modalsLoc = By.linkText("Modals");
-	private static By emptyFirstnameLoc = By.xpath("//input[@placeholder='First Name']");
-	private static By searchBoxLoc = By.id("searchbox");
-	private static By indiaLoc = By.xpath("//a[text()='India']");
-	private static By malaysiaLoc = By.xpath("//a[text()='Malaysia']");
-	private static By boxCountry_1Loc = By.xpath("//div[text()='India']");
-	private static By videoLoc = By.linkText("Video");
-	private static By vimeoLoc = By.xpath("//a[text()='Vimeo']");
-	private static By playVideoLoc = By.xpath("//div[@class='play-icon']");
-	private static By alertClickLoc = By.xpath("//button[contains(text(),'display an  alert box')]");
-
-	public static void formFilling(WebDriver driver, String firstName, String lastName, String address, String email,
+	private  By firstNameLoc = By.xpath("//input[@placeholder='First Name']");
+	private  By lastNameLoc = By.xpath("//input[@placeholder='Last Name']");
+	private  By addressLoc = By.tagName("textarea");
+	private  By emailLoc = By.xpath("//input[@type='email']");
+	private  By mobileNumLoc = By.xpath("//input[@type='tel']");
+	private  By genderLoc = By.xpath("//input[@value='Male']");
+	private  By hobbies_1Loc = By.xpath("//input[@value='Cricket']");
+	private  By hobbies_2Loc = By.xpath("//input[@value='Movies']");
+	private  By langLoc = By.id("msdd");
+	private  By lang_1Loc = By.xpath("//a[text()='Arabic']");
+	private  By lang_2Loc = By.xpath("//a[text()='English']");
+	private  By skillsLoc = By.id("Skills");
+	private  By countriesLoc = By.id("countries");
+	private  By countries_1Loc = By.id("country");
+	private  By yearLoc = By.id("yearbox");
+	private  By monthLoc = By.xpath("//select[@placeholder='Month']");
+	private  By dayLoc = By.id("daybox");
+	private  By passLoc = By.id("firstpassword");
+	private  By confrmPassLoc = By.id("secondpassword");
+	private  By refreshLoc = By.xpath("//button[text()='Refresh']");
+	private  By switchToLoc = By.linkText("SwitchTo");
+	private  By alertsLoc = By.linkText("Alerts");
+	private  By widgetsLoc = By.linkText("Widgets");
+	private  By autoCompleteLoc = By.linkText("AutoComplete");
+	private  By moreEleLoc = By.linkText("More");
+	private  By modalsLoc = By.linkText("Modals");
+	private  By emptyFirstnameLoc = By.xpath("//input[@placeholder='First Name']");
+	private  By searchBoxLoc = By.id("searchbox");
+	private  By indiaLoc = By.xpath("//a[text()='India']");
+	private  By malaysiaLoc = By.xpath("//a[text()='Malaysia']");
+	private  By boxCountry_1Loc = By.xpath("//div[text()='India']");
+	private  By videoLoc = By.linkText("Video");
+	private  By vimeoLoc = By.xpath("//a[text()='Vimeo']");
+	private  By playVideoLoc = By.xpath("//div[@class='play-icon']");
+	private  By alertClickLoc = By.xpath("//button[contains(text(),'display an  alert box')]");
+	private  By homeLoc = By.linkText("Home");
+	private  By signInLoc = By.xpath("//button[text()='Sign In']");
+	private  By signInEmailLoc = By.xpath("//input[@placeholder='E mail']");
+	private  By signInPasswordLoc = By.xpath("//input[@placeholder='Password']");
+	private  By enterLoc = By.xpath("//img[@id='enterbtn']");
+	private  By errorMsgLoc = By.xpath("//label[@id='errormsg']");
+	private WebDriver driver;
+	
+	
+	public DemositePage(WebDriver driver) {
+		
+		this.driver = driver;
+		
+	}
+	
+	
+	public  void formFilling(String firstName, String lastName, String address, String email,
 			String num, String skill, String workCountry, String presentCountry, String birthYear, String birthMonth,
 			String birthDay, String password, String confirmPass) {
 		driver.findElement(firstNameLoc).sendKeys(firstName);
@@ -93,13 +108,13 @@ public class DemositePage {
 
 	}
 
-	public static String getTitleOfPage(WebDriver driver) {
+	public  String getTitleOfPage() {
 
 		return driver.getTitle();
 
 	}
 
-	public static void clickOnAlerts(WebDriver driver) {
+	public  void clickOnAlerts() {
 
 		Actions action = new Actions(driver);
 		action.moveToElement(driver.findElement(switchToLoc)).pause(2000).build().perform();
@@ -107,7 +122,7 @@ public class DemositePage {
 		action.moveToElement(driver.findElement(alertClickLoc)).pause(2000).click().build().perform();
 	}
 
-	public static void clickOnAutoComplete(WebDriver driver, String country_1, String country_2) {
+	public  void clickOnAutoComplete(String country_1, String country_2) {
 
 		Actions action = new Actions(driver);
 		action.moveToElement(driver.findElement(widgetsLoc)).pause(2000).build().perform();
@@ -118,26 +133,26 @@ public class DemositePage {
 		driver.findElement(malaysiaLoc).click();
 	}
 
-	public static void clickOnModals(WebDriver driver) {
+	public  void clickOnModals() {
 
 		Actions action = new Actions(driver);
 		action.moveToElement(driver.findElement(moreEleLoc)).pause(2000).build().perform();
 		driver.findElement(modalsLoc).click();
 	}
 
-	public static String afterRefresh(WebDriver driver) {
+	public  String afterRefresh() {
 
 		return driver.findElement(emptyFirstnameLoc).getText();
 
 	}
 
-	public static String getFilledCountryName(WebDriver driver) {
+	public  String getFilledCountryName() {
 
 		return driver.findElement(boxCountry_1Loc).getText();
 
 	}
 
-	public static void clickOnVimeo(WebDriver driver) {
+	public  void clickOnVimeo() {
 
 		Actions action = new Actions(driver);
 		action.moveToElement(driver.findElement(videoLoc)).pause(2000).moveToElement(driver.findElement(vimeoLoc)).pause(2000).click().build().perform();
@@ -146,5 +161,26 @@ public class DemositePage {
 		action.moveToElement(driver.findElement(playVideoLoc)).click().pause(5000).build().perform();
 
 	}
+	
+	
+	public  void clickOnSignin(String email,String password) {
+
+		driver.findElement(homeLoc).click();
+		driver.findElement(signInLoc).click();
+		driver.findElement(signInEmailLoc).sendKeys(email);
+		driver.findElement(signInPasswordLoc).sendKeys(password);
+		driver.findElement(enterLoc).click();
+		
+
+	}
+	
+	
+	public  String getErrorMsg() {
+		
+		return driver.findElement(errorMsgLoc).getText();
+		
+	}
+	
+	
 
 }
